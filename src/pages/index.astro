@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroBall from '../components/HeroBall.astro';
+---
+
+<Layout>
+	<main>
+		<div class="hero-component">
+		<h1>Jeremy Wood</h1>
+		<HeroBall/>
+	</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		align-items: center;
+		justify-items: center;
+	}
+
+	.hero-component {
+		height: 100vh;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 2em 1fr;
+		align-items: center;
+		justify-items: center;
+	}
+
+	h1 {
+		color: rgb(31, 30, 30);
+	}
+
+
+
+</style>
