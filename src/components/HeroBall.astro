@@ -10,38 +10,64 @@
 // }
 
 // const { href, title, body } = Astro.props;
-
 ---
 
-<span class="hero-ball">
-	YO
-</span>
+<canvas id="hero-ball"> YO </canvas>
 
 <script>
-	import { gsap } from "gsap";
-	import { CustomEase } from "gsap/CustomEase";
+  import { gsap } from "gsap";
+  import { CustomEase } from "gsap/CustomEase";
 
-	gsap.to(".hero-ball", {
-		duration: 2.7,
-		y: -250,
-		width: 150,
-		height: 150,
-		// ease: "power2.inOut"
-		// ease: "elastic.out(1,0.5)"
-		// ease: CustomEase.create("custom", "M0,0 C0,0 0.015,0.156 0.021,0.226 0.033,0.373 0.054,0.719 0.065,0.867 0.07,0.941 0.079,1.055 0.085,1.115 0.089,1.162 0.1,1.254 0.106,1.293 0.109,1.31 0.113,1.33 0.116,1.341 0.119,1.349 0.124,1.365 0.128,1.369 0.131,1.372 0.137,1.372 0.14,1.369 0.145,1.365 0.153,1.344 0.156,1.334 0.161,1.319 0.167,1.29 0.173,1.265 0.188,1.198 0.216,1.03 0.233,0.965 0.239,0.94 0.25,0.91 0.256,0.896 0.259,0.889 0.263,0.882 0.266,0.879 0.269,0.875 0.275,0.87 0.279,0.869 0.282,0.867 0.288,0.868 0.291,0.869 0.295,0.871 0.3,0.874 0.306,0.881 0.325,0.905 0.364,0.986 0.383,1.012 0.39,1.021 0.399,1.031 0.405,1.035 0.41,1.039 0.421,1.045 0.427,1.046 0.434,1.047 0.448,1.044 0.457,1.041 0.475,1.034 0.515,1.003 0.533,0.995 0.544,0.99 0.56,0.984 0.574,0.983 0.607,0.981 0.683,1.003 0.72,1.005 0.757,1.007 0.831,0.998 0.868,0.998 0.901,0.997 1,1 1,1 "),
-		ease: CustomEase.create("custom", "M0,0 C0.189,0 0.312,0.158 0.35,0.258 0.39,0.382 0.435,0.947 0.509,1.069 0.59,1.203 0.613,0.777 0.752,0.725 0.854,0.686 0.856,1 1,1 "),
-	});
+  //   const canvas = document.getElementById("hero-ball") as HTMLCanvasElement;
+  //   if (canvas.getContext) {
+  //     const ctx = canvas.getContext("2d");
+  //   }
+
+  // let ctx = document.getElementById("hero-ball")!.getContext("2d");
+
+  // var circ = new Circle(100, 100, 20);
+
+  //Define the circle
+  // function Circle(this: Function, x: number, y: number, r: number) {
+  //     "use strict";
+  //     this.x = (x === null) ? 0 : x;
+  //     this.y = (y === null) ? 0 : y;
+  //     this.r = (r === null) ? 0 : r;
+
+  //     this.fill = function(ctx) {
+  //         ctx.beginPath();
+  //         ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+  //         ctx.fill();
+  //     }
+  // }
+
+  //Draw the circle as object
+  // circ.fill(ctx);
+
+  let tl = gsap.timeline({});
+  tl.to("#hero-ball", {
+    duration: 2.5,
+    y: -250,
+    width: "50vw",
+    height: "50vw",
+    borderRadius: "75%",
+    ease: CustomEase.create(
+      "custom",
+      "M0,0 C0,0 0.207,0.021 0.226,0.113 0.241,0.186 0.253,0.645 0.268,0.753 0.274,0.806 0.283,0.967 0.296,1.063 0.301,1.095 0.323,1.182 0.323,1.182 0.323,1.182 0.4,1.2 0.4,1.2 0.4,1.2 0.435,1.14 0.451,1.07 0.462,1.018 0.459,1.034 0.471,0.939 0.492,0.779 0.472,0.879 0.5,0.8 0.54,0.75 0.595,0.822 0.595,0.822 0.595,0.898 0.626,0.922 0.636,0.957 0.647,0.999 0.715,1.034 0.715,1.034 0.715,1.034 0.757,1.006 0.784,1.003 0.864,0.994 1,1 1,1 "
+    ),
+  });
+  //   tl.to("#hero-ball", {
+  //     transform: "rotate(540deg)",
+  //   });
 </script>
 
 <style>
-
-	.hero-ball {
-		content: '';
-		height: 2px;
-		width: 100vw;
-		background-color: white;
-		border-radius: 50%;
-		align-self: end;
-	}
-
+  #hero-ball {
+    content: "";
+    height: 10px;
+    width: 130vw;
+    background-color: white;
+    border-radius: 1em;
+    align-self: end;
+  }
 </style>
