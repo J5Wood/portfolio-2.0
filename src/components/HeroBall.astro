@@ -13,6 +13,7 @@
 ---
 
 <div id="hero-ball">
+  <!-- <span class="hero-ball-background"></span> -->
   <span id="ball-rotation">
     <span id="sliver"></span>
   </span>
@@ -61,6 +62,10 @@
       "M0,0 C0,0 0.207,0.021 0.226,0.113 0.241,0.186 0.253,0.645 0.268,0.753 0.274,0.806 0.283,0.967 0.296,1.063 0.301,1.095 0.323,1.182 0.323,1.182 0.323,1.182 0.4,1.2 0.4,1.2 0.4,1.2 0.435,1.14 0.451,1.07 0.462,1.018 0.459,1.034 0.471,0.939 0.492,0.779 0.472,0.879 0.5,0.8 0.54,0.75 0.595,0.822 0.595,0.822 0.595,0.898 0.626,0.922 0.636,0.957 0.647,0.999 0.715,1.034 0.715,1.034 0.715,1.034 0.757,1.006 0.784,1.003 0.864,0.994 1,1 1,1 "
     ),
   });
+  tl.to("#ball-rotation", {
+    left: "-102%",
+    duration: 2,
+  });
 </script>
 
 <style>
@@ -74,28 +79,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  #hero-ball::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid white;
+    content: "";
+    /* background-color: aqua; */
+    z-index: 999;
   }
 
   #ball-rotation {
+    width: 50vh;
+    height: 50vh;
     position: absolute;
-    top: 0.5%;
-    left: 0.5%;
-    /* left: 120%; */
-    width: 99%;
-    height: 99%;
-    border-radius: 50%;
-    background-color: blue;
+    /* top: 0.5%; */
+    /* left: 0.5%; */
+    left: 102%;
+    /* width: 100%;
+    height: 100%; */
+    /* border-radius: 50%; */
+    background-color: black;
     content: "";
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 5;
   }
 
-  #sliver {
+  /* #sliver {
     height: 100%;
     width: 100%;
     position: relative;
-    /* content: ""; */
     background-color: red;
     overflow: hidden;
     transform-origin: 0% -25%;
@@ -106,32 +126,43 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    /* border-radius: 50%; */
-    /* border: 2em solid black; */
+    border-radius: 50%;
+  }
+  */
+
+  #sliver {
+    position: absolute;
+    height: 5%;
+    width: 25%;
+    top: 25%;
+    right: 11%;
+    border: 2px solid white;
+    border-radius: 1em;
+    transform: rotate(50deg);
   }
 
-  #sliver::before {
-    clip-path: ellipse(90% 110% at 90% 100%);
+  /* #sliver::before { */
+  /* clip-path: ellipse(90% 110% at 90% 100%);
 
-    position: absolute;
-    /* top: 0;
+    position: absolute; */
+  /* top: 0;
     left: 0;
     right: 0;
     bottom: 0; */
-    height: 70%;
+  /* height: 70%;
     width: 70%;
     content: "";
     border: 2em solid black;
     border-radius: 50%;
     transform-origin: 0% -37%;
-    transform: skew(-50deg);
-    /* background-color: chartreuse; */
-    /* border: 5px solid yellow; */
+    transform: skew(-50deg); */
+  /* background-color: chartreuse; */
+  /* border: 5px solid yellow; */
 
-    /* border-radius: 90% 90% 0 0;
+  /* border-radius: 90% 90% 0 0;
     transform-origin: 50% 100%;
     transform: rotate(140deg); */
-  }
+  /* } */
 
   /* .moon {
     padding: 12%;
